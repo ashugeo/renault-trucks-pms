@@ -5,7 +5,7 @@
 }
 
 html {
-    background-color: #333;
+    background-color: #222;
 }
 
 body {
@@ -25,7 +25,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #333;
+    background-color: #222;
     color: white;
     padding: 32px;
     z-index: 100;
@@ -88,9 +88,21 @@ header {
 
             &.active {
                 color: white;
-
+                
                 .icon {
                     background-color: white;
+
+                    &::before {
+                        background-color: white;
+                    }
+                }
+
+                &:not(.last) {
+                    .icon {    
+                        &::after {
+                            background-color: white;
+                        }
+                    }
                 }
             }
         }
@@ -103,6 +115,15 @@ aside {
 
     .box {
         width: 368px;
+
+        input[type="text"],
+        input[type="mail"] {
+            &[disabled] {
+                padding: 12px 0;
+                color: black;
+                background-color: transparent;
+            }
+        }
     }
 }
 
@@ -146,7 +167,7 @@ main {
     }
 
     &.add {
-        opacity: .6;
+        opacity: .5;
         cursor: pointer;
 
         &:hover {
@@ -155,7 +176,13 @@ main {
     }
 
     details {
-        margin-top: -48px;
+        &:not(:last-child) {
+            margin-bottom: 24px;
+        }
+        
+        &:nth-of-type(2) {
+            margin-top: -48px;
+        }
     }
 
     .actions {
@@ -266,9 +293,41 @@ input {
     }
 }
 
+select,
+input {
+    &:not([disabled]):invalid {
+        background-color: hsl(40, 100%, 90%);
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
 button {
     &:focus {
         outline: none;
+    }
+
+    &.button-primary {
+        background-color: black;
+        color: white;
+        cursor: pointer;
+
+        span {
+            display: inline-block;
+            transition: transform .2s ease;
+        }
+
+        &:hover {
+            span.right {
+                transform: translateX(4px);
+            }
+
+            span.down {
+                transform: translateY(4px);
+            }
+        }
     }
 }
 
@@ -296,7 +355,7 @@ input {
         cursor: pointer;
 
         &:checked {
-            background-color: #222222;
+            background-color: #242424;
             color: white;
 
             &::after {
@@ -314,6 +373,14 @@ input {
             }
         }
         
+        &[disabled] {
+            cursor: default;
+
+            & + label {
+                cursor: default;
+            }
+        }
+        
         &:focus {
             outline: none;
         }
@@ -326,7 +393,7 @@ input {
 
 .input-wrap {
     position: relative;
-    background-color: hsl(0, 15%, 95%);
+    // background-color: hsl(0, 15%, 95%);
 
     &[data-after] {
         input {
@@ -348,7 +415,7 @@ input {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 40px;
+            width: 42px;
         }
     }
 }
@@ -370,7 +437,7 @@ input {
         }
 
         &:invalid {
-            color: hsl(0, 5%, 70%);
+            color: hsl(30, 20%, 60%);
         }
     }
 }
@@ -401,6 +468,8 @@ input {
         width: 56px;
         text-align: center;
         border-radius: 0;
+        border-right: 1px solid hsl(0, 15%, 85%);
+        border-left: 1px solid hsl(0, 15%, 85%);
 
         &:hover {
             background-color: hsl(0, 15%, 90%);
@@ -413,11 +482,33 @@ input {
 
 details {
     summary {
+        font-weight: bold;
+        // margin-left: -16px;
         display: inline;
         cursor: pointer;
+        
+        &::-webkit-details-marker {
+            opacity: .2;
+        }
 
         &:focus {
             outline: none;
+        }
+
+        &:hover {
+            &::-webkit-details-marker {
+                opacity: 1;
+            }
+        }
+    }
+
+    &[open] {
+        summary {
+            margin-bottom: 16px;
+
+            &::-webkit-details-marker {
+                opacity: 1;
+            }
         }
     }
 }
@@ -429,12 +520,36 @@ details {
     border-radius: 4px;
 
     &:first-of-type {
-        margin-top: 40px;
+        margin-top: 16px;
     }
 
     &:not(:last-child) {
         margin-bottom: 12px;
     }
+
+    .row {
+        &:first-of-type {
+            margin-top: 16px;
+        }
+
+        a {
+            &:first-child {
+                margin-left: auto;
+            }
+
+            &:not(:last-child) {
+                margin-right: 16px;
+            }
+        }
+    }
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.none {
+    display: none;
 }
 
 @media screen and (max-width: 800px) {

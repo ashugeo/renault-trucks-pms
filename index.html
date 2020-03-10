@@ -7,16 +7,15 @@
 
     <link rel="stylesheet" href="./css/main.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script> -->
     <script src="./js/main.js"></script>
 </head>
 <body>
-    <div class="content">
-
     <div class="wrap">
         <header>
             <div class="wrap">
                 <ul>
-                    <li class="active">
+                    <li class="active last">
                         <div class="icon"></div>
                         <p>Vente</p>
                     </li>
@@ -51,7 +50,7 @@
                     <div>
                         <label for="">Nom</label>
                         <div class="input-wrap">
-                            <input type="text">
+                            <input type="text" data-disable-step="2345" required>
                         </div>
                     </div>
                 </div>
@@ -59,19 +58,19 @@
                     <div>
                         <label for="">Contact</label>
                         <div class="input-wrap">
-                            <input type="mail">
+                            <input type="mail" data-disable-step="2345" required>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="checkbox-wrap">
-                        <input type="checkbox" id="workshop">
+                        <input type="checkbox" id="workshop" data-disable-step="2345">
                         <label for="workshop">Atelier intégré</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="checkbox-wrap">
-                        <input type="checkbox" id="contract">
+                        <input type="checkbox" id="contract" data-disable-step="2345">
                         <label for="contract">Contrat de maintenance</label>
                     </div>
                 </div>
@@ -90,7 +89,7 @@
         <main>
             <script>document.write(createModel('A'));</script>
             
-            <div class="model add">
+            <div class="model add" data-hide-step="2345">
                 <h3>[+] Nouveau lot</h3>
             </div>
         </main>
