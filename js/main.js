@@ -1,6 +1,6 @@
-function createModel(id) {
-    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
+function createModel(id) {
     return `<div class="model">
 
         <div class="actions">
@@ -168,4 +168,20 @@ $(document).on('click', '.model.add', () => {
 
 $(document).on('click', '.actions span', e => {
     $(e.target).closest('.actions').toggleClass('visible');
+});
+
+$(document).on('click', '[data-action]', e => {
+    const $el = $(e.target);
+    const action = $el.attr('data-action');
+    const $model = $el.closest('.model');
+
+    if (action === 'copy') {
+        $el.closest('.actions').toggleClass('visible');
+        const $new = $model.clone();
+
+        $new.find('.model-id').parent().html(`Copie de ${$new.find('.model-id').parent().html()}`);
+        $model.after($new);
+    } else if (action === 'delete') {
+        $model.remove();
+    }
 });
