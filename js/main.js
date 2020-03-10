@@ -161,6 +161,11 @@ $(document).on('click', '.input-number-wrap button', e => {
     $input.trigger('keyup');
 });
 
+$(document).on('change', 'select', e => {
+    const $el = $(e.target);
+    $el.find(`option[value="${$el.val()}"]`).attr('selected', true);
+});
+
 $(document).on('click', '.model.add', () => {
     $('.model.add').before(createModel());
     updateTotal();
