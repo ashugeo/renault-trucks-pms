@@ -11,101 +11,88 @@
 </head>
 <body>
     <div class="wrap">
-        <div class="model">
-            <div class="row">
-                <h3>Silhouette <span class="model-id">A</span></h3>
+        <header>
+            <div class="wrap">
+                <ul>
+                    <li class="active">
+                        <div class="icon"></div>
+                        <p>Vente</p>
+                    </li>
+                    <li>
+                        <div class="icon"></div>
+                        <p>Production</p>
+                    </li>
+                    <li>
+                        <div class="icon"></div>
+                        <p>Livraison</p>
+                    </li>
+                    <li>
+                        <div class="icon"></div>
+                        <p>PMS</p>
+                    </li>
+                    <li>
+                        <div class="icon"></div>
+                        <p>Suivi</p>
+                    </li>
+                </ul>
             </div>
+        </header>
 
-            <div class="row">
-                <div class="input-wrap">
-                    <label for="">Info 1</label>
-                    <div class="select-wrap">
-                        <select name="" id="">
-                            <option value="" selected disabled>Sélectionnez…</option>
-                            <option value="a">A</option>
-                            <option value="b">B</option>
-                            <option value="c">C</option>
-                        </select>
+        <aside>
+            <div class="box">
+                <div class="row">
+                    <h3>
+                        <script>document.write(`Commande n°${Math.round(Math.random() * 100000000).toString().padStart(8, '0')}`);</script>
+                    </h3>
+                </div>
+                <div class="row">
+                    <div>
+                        <label for="">Nom</label>
+                        <div class="input-wrap">
+                            <input type="text">
+                        </div>
                     </div>
                 </div>
-                <div class="input-wrap">
-                    <label for="">Info 2</label>
-                    <input type="text">
+                <div class="row">
+                    <div>
+                        <label for="">Contact</label>
+                        <div class="input-wrap">
+                            <input type="mail">
+                        </div>
+                    </div>
                 </div>
-                <div class="input-wrap">
-                    <label for="">Info 3</label>
-                    <input type="text">
+                <div class="row">
+                    <div class="checkbox-wrap">
+                        <input type="checkbox" id="workshop">
+                        <label for="workshop">Atelier intégré</label>
+                    </div>
                 </div>
-            </div>
+                <div class="row">
+                    <div class="checkbox-wrap">
+                        <input type="checkbox" id="contract">
+                        <label for="contract">Contrat de maintenance</label>
+                    </div>
+                </div>
 
-            <div class="row">
-                <div class="input-wrap">
-                    <label for="">Info 4</label>
-                    <input type="text">
-                </div>
-                <div class="input-wrap">
-                    <label for="">Info 5</label>
-                    <input type="text">
-                </div>
-                <div class="input-wrap">
-                    <label for="">Info 6</label>
-                    <input type="text">
+                <div class="row">
+                    <div>
+                        <h3>Total véhicules</h3>
+                    </div>
+                    <div class="noflex">
+                        <h3 class="total-count">1</h3>
+                    </div>
                 </div>
             </div>
+        </aside>
+
+        <main>
+            <script>document.write(createModel('A'));</script>
             
-            <div class="row">
-                <div></div>
-                <div class="noflex">
-                    <div class="input-number-wrap">
-                        <button class="minus">-</button>
-                        <input class="count" type="number" value="1" min="1" step="1">
-                        <button class="plus">+</button>
-                    </div>
-                </div>
+            <div class="model add">
+                <h3>[+] Nouveau lot</h3>
             </div>
-            
-            <details>
-                <summary>Voir les véhicules</summary>
+        </main>
 
-                <div class="truck">
-                    Véhicule <span class="truck-id">1</span>
-
-                    <!-- <div class="row">
-                        <div class="input-wrap">
-                            <label for="">Info 1</label>
-                            <input type="text">
-                        </div>
-                        <div class="input-wrap">
-                            <label for="">Info 2</label>
-                            <input type="text">
-                        </div>
-                        <div class="input-wrap">
-                            <label for="">Info 3</label>
-                            <input type="text">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-wrap">
-                            <label for="">Info 4</label>
-                            <input type="text">
-                        </div>
-                        <div class="input-wrap">
-                            <label for="">Info 5</label>
-                            <input type="text">
-                        </div>
-                        <div class="input-wrap">
-                            <label for="">Info 6</label>
-                            <input type="text">
-                        </div>
-                    </div> -->
-                </div>
-            </details>
-        </div>
-
-        <div class="model add">
-            <h3>[+] Nouvelle silhouette</h3>
-        </div>
     </div>
 </body>
 </html>
