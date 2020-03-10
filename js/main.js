@@ -116,13 +116,13 @@ function createModel(id) {
                 <div>
                     <label for="">Kilométrage annuel</label>
                     <div class="input-wrap" data-after="km">
-                        <input type="number" min="0" step="1000" required>
+                        <input type="number" min="0" required>
                     </div>
                 </div>
                 <div>
                     <label for="">Heures moteur annuelles</label>
                     <div class="input-wrap" data-after="h">
-                        <input type="number" min="0" step="100" required>
+                        <input type="number" min="0" required>
                     </div>
                 </div>
             </div>
@@ -217,6 +217,14 @@ $(document).on('click', '.input-number-wrap button', e => {
     const $input = $el.siblings('input');
     $input.val(Math.max(parseInt($input.val()) + ($el.hasClass('plus') ? 1 : -1), 1));
     $input.trigger('keyup');
+});
+
+$(document).on('change keyup', 'input, select', e => {
+    const fields = $('input:not([disabled]):invalid, select:not([disabled]):invalid').length;
+    const allFields = $('input:not([disabled]), select:not([disabled])').length;
+    const progress = 100 - Math.round(fields / allFields * 100);
+    $('.progress label span').html(`${progress}%`);
+    $('.progress .progress-bar div').css('width', `${progress}%`);
 });
 
 $(document).on('change', 'select', e => {

@@ -125,6 +125,36 @@ aside {
             }
         }
     }
+
+    .progress {
+        margin-top: 32px;
+        
+        label {
+            position: relative;
+            width: 100%;
+            margin-bottom: 8px;
+
+            span {
+                position: absolute;
+                right: 0;
+            }
+        }
+
+        .progress-bar {
+            height: 8px;
+            background-color: hsl(0, 15%, 90%);
+            border-radius: 4px;
+            overflow: hidden;
+            
+            div {
+                height: 100%;
+                width: 0;
+                background-color: hsl(120, 100%, 40%);
+                border-radius: 0 4px 4px 0;
+                transition: width .2s ease;
+            }
+        }
+    }
 }
 
 main {
