@@ -21,9 +21,9 @@ const truckHTML = `<div class="truck">
     </div>
 
     <div class="row none" data-none-step="1235">
-        <a href="/dummy.pdf" target="_blank" download="PMS Véhicule 1"><button class="button-primary">Télécharger le PMS <span class="down">↓</span></button></a>
+        <a href="/pms.pdf" target="_blank" download="PMS Véhicule 1"><button class="button-primary">Télécharger le PMS <span class="down">↓</span></button></a>
 
-        <a href="mailto:?subject=Nouveau PMS attribué à votre concession&body=Bonjour,%0D%0A%0D%0ATest"><button class="button-primary">Envoyer le PMS par email <span class="right">→</span></button></a>
+        <a href="mailto:?subject=Nouveau PMS attribué à votre concession&body=Bonjour,%0D%0A%0D%0AUn nouveau PMS a été attribué à votre concession.%0D%0AVeuillez cliquer sur ce lien pour le télécharger : ${location.href}pms.pdf"><button class="button-primary">Envoyer le PMS par email <span class="right">→</span></button></a>
     </div>
 
 </div>`;
@@ -227,9 +227,6 @@ function updateProgress() {
     const fields = $('input[required]:not([disabled]):invalid, select[required]:not([disabled]):invalid').length;
     const allFields = $('input[required]:not([disabled]), select[required]:not([disabled])').length;
 
-    console.log($('input[required]:not([disabled]):invalid, select[required]:not([disabled]):invalid'));
-    console.log($('input[required]:not([disabled]), select[required]:not([disabled])'));
-
     const progress = 100 - Math.round(fields / allFields * 100);
     $('.progress label span').html(`${progress}% (${allFields - fields}/${allFields})`);
     $('.progress .progress-bar div').css('width', `${progress}%`);
@@ -288,8 +285,8 @@ $(document).on('keyup', '.dealer-mail', e => {
     const $model = $(e.target).closest('.model');
     
     let mailto = $model.find('a[href^="mailto"]').attr('href');
-    mailto = mailto.replace(/mailto:[\w @\.]*\?/, ``);
-    $model.find('a[href^="mailto"]').attr('href', `mailto:${value}?`);
+    mailto = mailto.replace(/mailto:[\w @\.]*\?/, `mailto:${value}?`);
+    $model.find('a[href^="mailto"]').attr('href', mailto);
 });
 
 $(document).on('keyup', '.dealer-name', e => {
@@ -297,7 +294,7 @@ $(document).on('keyup', '.dealer-name', e => {
     const $model = $(e.target).closest('.model');
     
     let mailto = $model.find('a[href^="mailto"]').attr('href');
-    mailto = mailto.replace(/Bonjour *\w*,/, `Bonjour ${value},`);
+    mailto = mailto.replace(/Bonjour *\w*\,/g, `Bonjour ${value},`);
     $model.find('a[href^="mailto"]').attr('href', mailto);
 });
 
