@@ -127,7 +127,7 @@ aside {
     }
 
     .progress {
-        margin-top: 32px;
+        margin: 32px 0;
         
         label {
             position: relative;
@@ -153,6 +153,16 @@ aside {
                 border-radius: 0 4px 4px 0;
                 transition: width .2s ease;
             }
+        }
+    }
+
+    button {
+        transition: opacity .2s ease;
+        height: 56px;
+
+        &[disabled] {
+            background-color: hsl(0, 5%, 80%);
+            cursor: default;
         }
     }
 }
@@ -245,9 +255,10 @@ main {
             border-radius: 4px;
             border: 1px solid hsl(0, 15%, 95%);
             box-shadow: 0 8px 16px hsl(0, 15%, 90%);
+            z-index: 10;
             
             li {
-                padding: 8px 12px;
+                padding: 12px 16px;
                 font-size: 14px;
                 cursor: pointer;
                 color: #999;

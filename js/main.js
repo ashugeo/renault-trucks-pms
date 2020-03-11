@@ -1,3 +1,5 @@
+let step = 0;
+
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 const truckHTML = `<div class="truck">
@@ -7,18 +9,18 @@ const truckHTML = `<div class="truck">
         <div>
             <label for=""><abbr title="Vehicle Identification Number">VIN</abbr></label>
             <div class="input-wrap">
-                <input type="text" data-disable-step="35" required>
+                <input type="text" data-disable-step="135" required disabled>
             </div>
         </div>
         <div>
             <label for="">Immatriculation</label>
             <div class="input-wrap">
-                <input type="text" data-disable-step="25" required>
+                <input type="text" data-disable-step="125" required disabled>
             </div>
         </div>
     </div>
 
-    <div class="row none" data-none-step="123">
+    <div class="row none" data-none-step="1235">
         <a href="/dummy.pdf" target="_blank" download="PMS Véhicule 1"><button class="button-primary">Télécharger le PMS <span class="down">↓</span></button></a>
 
         <a href="mailto:?subject=Nouveau PMS attribué à votre concession&body=Bonjour,%0D%0A%0D%0ATest"><button class="button-primary">Envoyer le PMS par email <span class="right">→</span></button></a>
@@ -41,14 +43,14 @@ function createModel(id) {
             <h3 contenteditable>Lot <span class="model-id">${alphabet[($('.model').length || 1) - 1]}</span></h3>
         </div>
 
-        <details class="config" open data-open-step="14">
+        <details class="config" open data-open-step="145">
             <summary>Configuration</summary>
 
             <div class="row">
                 <div>
                     <label for="">Modèle</label>
                     <div class="select-wrap">
-                        <select name="" id="" required>
+                        <select name="" id="" data-disable-step="235" required>
                             <option value="" selected disabled>Sélectionnez…</option>
                             <option value="a">A</option>
                             <option value="b">B</option>
@@ -59,13 +61,13 @@ function createModel(id) {
                 <div>
                     <label for="">Essieux</label>
                     <div class="input-wrap">
-                        <input type="text" required>
+                        <input type="text" data-disable-step="235" required>
                     </div>
                 </div>
                 <div>
                     <label for="">Variante</label>
                     <div class="input-wrap">
-                        <input type="text" required>
+                        <input type="text" data-disable-step="235" required>
                     </div>
                 </div>
             </div>
@@ -74,7 +76,7 @@ function createModel(id) {
                 <div>
                     <label for="">Topographie</label>
                     <div class="select-wrap">
-                        <select name="" id="" required>
+                        <select name="" id="" data-disable-step="235" required>
                             <option value="" selected disabled>Sélectionnez…</option>
                             <option value="a">A</option>
                             <option value="b">B</option>
@@ -85,7 +87,7 @@ function createModel(id) {
                 <div>
                     <label for="">Type d'usage</label>
                     <div class="select-wrap">
-                        <select name="" id="" required>
+                        <select name="" id="" data-disable-step="235" required>
                             <option value="" selected disabled>Sélectionnez…</option>
                             <option value="a">Longue distance</option>
                             <option value="b">Transport</option>
@@ -96,7 +98,7 @@ function createModel(id) {
                 <div>
                     <label for="">Huile</label>
                     <div class="select-wrap">
-                        <select name="" id="" required>
+                        <select name="" id="" data-disable-step="235" required>
                             <option value="" selected disabled>Sélectionnez…</option>
                             <option value="a">Huile A</option>
                             <option value="b">Huile B</option>
@@ -110,19 +112,19 @@ function createModel(id) {
                 <div>
                     <label for=""><abbr title="Poids Total Roulant Autorisé">PTRA</abbr></label>
                     <div class="input-wrap">
-                        <input type="text" required>
+                        <input type="text" data-disable-step="235" required>
                     </div>
                 </div>
                 <div>
                     <label for="">Kilométrage annuel</label>
                     <div class="input-wrap" data-after="km">
-                        <input type="number" min="0" required>
+                        <input type="number" min="0" data-disable-step="235" required>
                     </div>
                 </div>
                 <div>
                     <label for="">Heures moteur annuelles</label>
                     <div class="input-wrap" data-after="h">
-                        <input type="number" min="0" required>
+                        <input type="number" min="0" data-disable-step="235" required>
                     </div>
                 </div>
             </div>
@@ -131,13 +133,13 @@ function createModel(id) {
                 <div>
                     <label for="">Contact concessionnaire</label>
                     <div class="input-wrap">
-                        <input type="text" class="dealer-name" data-disable-step="23" required>
+                        <input type="text" class="dealer-name" data-disable-step="235" required>
                     </div>
                 </div>
                 <div>
                     <label for="">Mail concessionnaire</label>
                     <div class="input-wrap">
-                        <input type="mail" class="dealer-mail" data-disable-step="23" required>
+                        <input type="mail" class="dealer-mail" data-disable-step="235" required>
                     </div>
                 </div>
             </div>
@@ -148,7 +150,7 @@ function createModel(id) {
             <div class="noflex">
                 <div class="input-number-wrap" data-hide-step="2345">
                     <button class="minus">-</button>
-                    <input class="count" type="number" value="1" min="1" step="1" required>
+                    <input class="count" type="number" value="1" min="1" step="1">
                     <button class="plus">+</button>
                 </div>
             </div>
@@ -169,12 +171,14 @@ function updateTotal() {
     $('.total-count').html(total);
 }
 
-function changeStep(step) {
+function changeStep() {
     $('header ul li.active').removeClass('active last');
     for (let i = 0; i <= step; i += 1) {
         $(`header ul li:nth-child(${i + 1})`).addClass('active');
         if (i === step) $(`header ul li:nth-child(${i + 1})`).addClass('last');
     }
+
+    $('aside button').html(['Valider la commande', 'Valider les VIN', 'Valider les immatriculations', 'Valider les PMS', ''][step]);
 
     $(`[data-hide-step*=${step + 1}]`).addClass('hidden');
     $(`[data-hide-step]:not([data-hide-step*=${step + 1}])`).removeClass('hidden');
@@ -219,12 +223,23 @@ $(document).on('click', '.input-number-wrap button', e => {
     $input.trigger('keyup');
 });
 
-$(document).on('change keyup', 'input, select', e => {
-    const fields = $('input:not([disabled]):invalid, select:not([disabled]):invalid').length;
-    const allFields = $('input:not([disabled]), select:not([disabled])').length;
+function updateProgress() {
+    const fields = $('input[required]:not([disabled]):invalid, select[required]:not([disabled]):invalid').length;
+    const allFields = $('input[required]:not([disabled]), select[required]:not([disabled])').length;
+
+    console.log($('input[required]:not([disabled]):invalid, select[required]:not([disabled]):invalid'));
+    console.log($('input[required]:not([disabled]), select[required]:not([disabled])'));
+
     const progress = 100 - Math.round(fields / allFields * 100);
-    $('.progress label span').html(`${progress}%`);
+    $('.progress label span').html(`${progress}% (${allFields - fields}/${allFields})`);
     $('.progress .progress-bar div').css('width', `${progress}%`);
+
+    if (progress === 100) $('aside button.button-primary').removeAttr('disabled');
+    else $('aside button.button-primary').attr('disabled', true);
+}
+
+$(document).on('change keyup', 'input, select', e => {
+    updateProgress();
 });
 
 $(document).on('change', 'select', e => {
@@ -235,6 +250,7 @@ $(document).on('change', 'select', e => {
 $(document).on('click', '.model.add', () => {
     $('.model.add').before(createModel());
     updateTotal();
+    updateProgress();
 });
 
 $(document).on('click', '.actions span', e => {
@@ -255,13 +271,16 @@ $(document).on('click', '[data-action]', e => {
     } else if (action === 'delete') {
         $model.remove();
     }
+
+    updateProgress();
 });
 
 $(document).on('click', 'header ul li', e => {
     const $li = $(e.target).closest('li');
-    const step = $li.index();
+    step = $li.index();
 
-    changeStep(step);
+    changeStep();
+    updateProgress();
 });
 
 $(document).on('keyup', '.dealer-mail', e => {
@@ -280,4 +299,10 @@ $(document).on('keyup', '.dealer-name', e => {
     let mailto = $model.find('a[href^="mailto"]').attr('href');
     mailto = mailto.replace(/Bonjour *\w*,/, `Bonjour ${value},`);
     $model.find('a[href^="mailto"]').attr('href', mailto);
+});
+
+$(document).on('click', 'aside button', () => {
+    step += 1;
+    changeStep();
+    updateProgress();
 });
