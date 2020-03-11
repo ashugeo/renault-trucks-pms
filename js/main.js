@@ -26,6 +26,9 @@ const truckHTML = `<div class="truck">
         <a href="mailto:?subject=Nouveau PMS attribué à votre concession&body=Bonjour,%0D%0A%0D%0AUn nouveau PMS a été attribué à votre concession.%0D%0ANous vous laissons prendre contact avec le client pour le suivi du plan.%0D%0A%0D%0ACordialement,"><button class="button-primary">Envoyer le PMS par email au concessionnaire <span class="right">→</span></button></a>
     </div>
 
+    <div class="row none" data-none-step="1234">
+        <a target="_blank"><button class="button-primary">Suivi <span class="right">→</span></button></a>
+    </div>
 </div>`;
 
 function createModel(id) {
