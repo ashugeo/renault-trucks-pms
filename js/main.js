@@ -23,7 +23,7 @@ const truckHTML = `<div class="truck">
     <div class="row none" data-none-step="1235">
         <a href="/pms.pdf" target="_blank" download="PMS Véhicule 1"><button class="button-primary">Télécharger le PMS <span class="down">↓</span></button></a>
 
-        <a href="mailto:?subject=Nouveau PMS attribué à votre concession&body=Bonjour,%0D%0A%0D%0AUn nouveau PMS a été attribué à votre concession.%0D%0ANous vous laissons prendre contact avec le cliebt pour le suivi du plan.%0D%0A%0D%0ACordialement,"><button class="button-primary">Envoyer le PMS par email au concessionnaire<span class="right">→</span></button></a>
+        <a href="mailto:?subject=Nouveau PMS attribué à votre concession&body=Bonjour,%0D%0A%0D%0AUn nouveau PMS a été attribué à votre concession.%0D%0ANous vous laissons prendre contact avec le client pour le suivi du plan.%0D%0A%0D%0ACordialement,"><button class="button-primary">Envoyer le PMS par email au concessionnaire <span class="right">→</span></button></a>
     </div>
 
 </div>`;
@@ -43,7 +43,7 @@ function createModel(id) {
             <h3 contenteditable>Lot <span class="model-id">${alphabet[($('.model').length || 1) - 1]}</span></h3>
         </div>
 
-        <details class="config" open data-open-step="145">
+        <details class="config" open data-open-step="1345">
             <summary>Configuration</summary>
 
             <div class="row">
@@ -134,7 +134,7 @@ function createModel(id) {
                 </div>
             </div>
 
-            <div class="row" data-none-step="12">
+            <div class="row none" data-none-step="12">
                 <div>
                     <label for="">Nom concessionnaire</label>
                     <div class="input-wrap">
