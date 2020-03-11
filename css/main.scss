@@ -30,9 +30,20 @@ header {
     padding: 32px;
     z-index: 100;
 
+    .logo {
+        position: absolute;
+        // left: 64px;
+        top: 48px;
+        margin-left: 16px;
+        width: 180px;
+        height: 60px;
+        background: transparent url(../img/logo.png) center center / cover no-repeat;
+    }
+
     ul {
         list-style: none;
         display: flex;
+        margin-left: 200px;
         // width: 100%;
         // justify-content: stretch;
 
@@ -48,11 +59,12 @@ header {
             color: rgba(255,255,255,.5);
 
             .icon {
-                width: 48px;
-                height: 48px;
+                width: 80px;
+                height: 80px;
                 border-radius: 50%;
-                background-color: #999;
+                background-color: #222;
                 margin-bottom: 16px;
+                border: 2px solid #666;
 
                 &::before,
                 &::after {
@@ -60,13 +72,43 @@ header {
                     position: absolute;
                     height: 2px;
                     width: 50%;
-                    background-color: #999;
-                    top: 24px;
+                    background-color: #666;
+                    top: 40px;
                     z-index: -1;
                 }
 
                 &::before {
                     left: 0;
+                }
+            }
+
+            &:nth-child(1) {
+                .icon {
+                    background: #222 url(../img/vente.png) center center / 44px no-repeat;
+                }
+            }
+
+            &:nth-child(2) {
+                .icon {
+                    background: #222 url(../img/production.png) center center / 44px no-repeat;
+                }
+            }
+
+            &:nth-child(3) {
+                .icon {
+                    background: #222 url(../img/livraison.png) center center / 44px no-repeat;
+                }
+            }
+
+            &:nth-child(4) {
+                .icon {
+                    background: #222 url(../img/pms.png) center center / 44px no-repeat;
+                }
+            }
+
+            &:nth-child(5) {
+                .icon {
+                    background: #222 url(../img/suivi.png) center center / 44px no-repeat;
                 }
             }
 
@@ -90,7 +132,7 @@ header {
                 color: white;
                 
                 .icon {
-                    background-color: white;
+                    border-color: white;
 
                     &::before {
                         background-color: white;
@@ -149,7 +191,8 @@ aside {
             div {
                 height: 100%;
                 width: 0;
-                background-color: hsl(120, 100%, 40%);
+                // background-color: hsl(120, 100%, 40%);
+                background-color: c90017;
                 border-radius: 0 4px 4px 0;
                 transition: width .2s ease;
             }
@@ -337,7 +380,7 @@ input {
 select,
 input {
     &:not([disabled]):invalid {
-        background-color: hsl(40, 100%, 90%);
+        background-color: hsl(10, 70%, 95%);
     }
 }
 
@@ -478,7 +521,7 @@ input {
         }
 
         &:invalid {
-            color: hsl(30, 20%, 60%);
+            color: hsl(10, 10%, 70%);
         }
     }
 }
