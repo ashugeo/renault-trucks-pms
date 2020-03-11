@@ -138,13 +138,13 @@ function createModel(id) {
                 <div>
                     <label for="">Nom concessionnaire</label>
                     <div class="input-wrap">
-                        <input type="text" class="dealer-name" data-disable-step="235" disabled required>
+                        <input type="text" class="dealer-name" data-disable-step="25" disabled required>
                     </div>
                 </div>
                 <div>
                     <label for="">Mail concessionnaire</label>
                     <div class="input-wrap">
-                        <input type="mail" class="dealer-mail" data-disable-step="235" disabled required>
+                        <input type="mail" class="dealer-mail" data-disable-step="25" disabled required>
                     </div>
                 </div>
             </div>
