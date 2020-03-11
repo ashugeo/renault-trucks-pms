@@ -46,7 +46,7 @@ function createModel(id) {
             <h3 contenteditable>Lot <span class="model-id">${alphabet[($('.model').length || 1) - 1]}</span></h3>
         </div>
 
-        <details class="config" open data-open-step="1345">
+        <details class="config" open data-open-step="134">
             <summary>Configuration</summary>
 
             <div class="row">
@@ -186,7 +186,7 @@ function changeStep() {
         if (i === step) $(`header ul li:nth-child(${i + 1})`).addClass('last');
     }
 
-    $('.name').html(['John Doe', 'Jane Doe', 'John Doe', 'Jannie Doe', 'Jannie Doe'][step]);
+    $('.name').html(['Philippe Duclos', 'Sonia Vial', 'Philippe Duclos', 'Sandrine Jean', 'Sandrine Jean'][step]);
     $('.job').html(['Vendeur VN', 'Assistante production', 'Vendeur VN', 'Gestionnaire de maintenance', 'Gestionnaire de maintenance'][step]);
     $('.avatar').attr('data-avatar', ['1', '2', '1', '3', '3'][step]);
 
