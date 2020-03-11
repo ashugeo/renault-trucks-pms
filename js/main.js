@@ -183,6 +183,10 @@ function changeStep() {
         if (i === step) $(`header ul li:nth-child(${i + 1})`).addClass('last');
     }
 
+    $('.name').html(['John Doe', 'Jane Doe', 'John Doe', 'Jannie Doe', 'Jannie Doe'][step]);
+    $('.job').html(['Vendeur VN', 'Assistante production', 'Vendeur VN', 'Gestionnaire de maintenance', 'Gestionnaire de maintenance'][step]);
+    $('.avatar').attr('data-avatar', ['1', '2', '1', '3', '3'][step]);
+
     $(`[data-hide-step*=${step + 1}]`).addClass('hidden');
     $(`[data-hide-step]:not([data-hide-step*=${step + 1}])`).removeClass('hidden');
 
@@ -198,17 +202,17 @@ function changeStep() {
 
 $(document).on('keyup', '.count', e => {
     const $model = $(e.target).closest('.model');
-    
+
     const $truck = $(`<div class="truck">
         Véhicule <span class="truck-id">0</span>
     </div>`);
 
     $model.find('.truck').remove();
-    
+
     const value = parseInt(e.target.value);
 
     $model.find('details.trucks summary').html(`${value} véhicule${value > 1 ? 's' : ''}`)
-    
+
     for (let i = 0; i < value; i += 1) {
         const $truck = $(truckHTML)
         $truck.find('.truck-id').html(i + 1);
@@ -287,7 +291,7 @@ $(document).on('click', 'header ul li', e => {
 $(document).on('keyup', '.dealer-mail', e => {
     const value = e.target.value;
     const $model = $(e.target).closest('.model');
-    
+
     let mailto = $model.find('a[href^="mailto"]').attr('href');
     mailto = mailto.replace(/mailto:[\w @\.]*\?/, `mailto:${value}?`);
     $model.find('a[href^="mailto"]').attr('href', mailto);
@@ -296,7 +300,7 @@ $(document).on('keyup', '.dealer-mail', e => {
 $(document).on('keyup', '.dealer-name', e => {
     const value = e.target.value;
     const $model = $(e.target).closest('.model');
-    
+
     let mailto = $model.find('a[href^="mailto"]').attr('href');
     mailto = mailto.replace(/Bonjour[ \w]*\,/g, `Bonjour ${value},`);
     $model.find('a[href^="mailto"]').attr('href', mailto);

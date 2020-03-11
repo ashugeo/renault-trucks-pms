@@ -149,11 +149,75 @@ header {
             }
         }
     }
+
+    .profile {
+        position: absolute;
+        bottom: -80px;
+        left: 0;
+        height: 80px;
+        width: 100%;
+        background-color: #666;
+        // display: flex;
+        // justify-content: flex-end;
+        // align-self: center;
+
+        .wrap {
+            height: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            > div {
+                &:first-child {
+                    margin-right: 16px;
+                }
+            }
+        }
+
+        p {
+            text-align: right;
+            font-weight: bold;
+            
+            &:first-child {
+                margin-bottom: 4px;
+            }
+            
+            &:nth-child(2) {
+                color: #bbb;
+                text-transform: uppercase;
+                font-size: 14px;
+                letter-spacing: 0.05em;
+                font-weight: bold;
+            }
+        }
+
+        .avatar {
+            width: 56px;
+            height: 56px;
+            background-color: white;
+            border-radius: 50%;
+            float: right;
+            background: transparent url(../img/vendeur-vn.png) center center / cover no-repeat;
+            border: 2px solid white;
+
+            &[data-avatar="1"] {
+                background-image: url(../img/vendeur-vn.png);
+            }
+
+            &[data-avatar="2"] {
+                background-image: url(../img/assistante.png);
+            }
+
+            &[data-avatar="3"] {
+                background-image: url(../img/gestionnaire.png);
+            }
+        }
+    }
 }
 
 aside {
     position: fixed;
-    top: 200px;
+    top: 284px;
 
     .box {
         width: 368px;
@@ -211,7 +275,7 @@ aside {
 }
 
 main {
-    margin-top: 168px;
+    margin-top: 252px;
     margin-left: 400px;
 }
 
