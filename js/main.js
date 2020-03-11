@@ -294,7 +294,7 @@ $(document).on('keyup', '.dealer-name', e => {
     const $model = $(e.target).closest('.model');
     
     let mailto = $model.find('a[href^="mailto"]').attr('href');
-    mailto = mailto.replace(/Bonjour *\w*\,/g, `Bonjour ${value},`);
+    mailto = mailto.replace(/Bonjour[ \w]*\,/g, `Bonjour ${value},`);
     $model.find('a[href^="mailto"]').attr('href', mailto);
 });
 
