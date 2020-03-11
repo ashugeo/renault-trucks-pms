@@ -183,8 +183,6 @@ function changeStep() {
         if (i === step) $(`header ul li:nth-child(${i + 1})`).addClass('last');
     }
 
-    $('aside button').html(['Valider', 'Valider', 'Valider', 'Valider', ''][step]);
-
     $(`[data-hide-step*=${step + 1}]`).addClass('hidden');
     $(`[data-hide-step]:not([data-hide-step*=${step + 1}])`).removeClass('hidden');
 
