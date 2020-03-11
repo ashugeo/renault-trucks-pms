@@ -12,7 +12,7 @@ const truckHTML = `<div class="truck">
                 <input type="text" data-disable-step="135" required disabled>
             </div>
         </div>
-        <div>
+        <div data-hide-step="12">
             <label for="">Immatriculation</label>
             <div class="input-wrap">
                 <input type="text" data-disable-step="125" required disabled>
@@ -23,7 +23,7 @@ const truckHTML = `<div class="truck">
     <div class="row none" data-none-step="1235">
         <a href="/pms.pdf" target="_blank" download="PMS Véhicule 1"><button class="button-primary">Télécharger le PMS <span class="down">↓</span></button></a>
 
-        <a href="mailto:?subject=Nouveau PMS attribué à votre concession&body=Bonjour,%0D%0A%0D%0AUn nouveau PMS a été attribué à votre concession.%0D%0AVeuillez cliquer sur ce lien pour le télécharger : ${location.href}pms.pdf"><button class="button-primary">Envoyer le PMS par email <span class="right">→</span></button></a>
+        <a href="mailto:?subject=Nouveau PMS attribué à votre concession&body=Bonjour,%0D%0A%0D%0AUn nouveau PMS a été attribué à votre concession.%0D%0ANous vous laissons prendre contact avec le cliebt pour le suivi du plan.%0D%0A%0D%0ACordialement,"><button class="button-primary">Envoyer le PMS par email au concessionnaire<span class="right">→</span></button></a>
     </div>
 
 </div>`;
@@ -52,24 +52,26 @@ function createModel(id) {
                     <div class="select-wrap">
                         <select name="" id="" data-disable-step="235" required>
                             <option value="" selected disabled>Sélectionnez…</option>
-                            <option value="a">A</option>
-                            <option value="b">B</option>
+                            <option value="t">T</option>
                             <option value="c">C</option>
+                            <option value="k">K</option>
+                            <option value="d">D</option>
                         </select>
                     </div>
                 </div>
                 <div>
-                    <label for="">Essieux</label>
-                    <div class="input-wrap">
-                        <input type="text" data-disable-step="235" required>
+                    <label for="">Silhouette</label>
+                    <div class="select-wrap">
+                        <select name="" id="" data-disable-step="235" required>
+                            <option value="" selected disabled>Sélectionnez…</option>
+                            <option value="x42">4x2</option>
+                            <option value="x62">6x2</option>
+                            <option value="x46">6x4</option>
+                            <option value="x84">8x4</option>
+                        </select>
                     </div>
                 </div>
-                <div>
-                    <label for="">Variante</label>
-                    <div class="input-wrap">
-                        <input type="text" data-disable-step="235" required>
-                    </div>
-                </div>
+                <div></div>
             </div>
 
             <div class="row">
@@ -78,9 +80,9 @@ function createModel(id) {
                     <div class="select-wrap">
                         <select name="" id="" data-disable-step="235" required>
                             <option value="" selected disabled>Sélectionnez…</option>
-                            <option value="a">A</option>
-                            <option value="b">B</option>
-                            <option value="c">C</option>
+                            <option value="a">Plat</option>
+                            <option value="b">Vallonné</option>
+                            <option value="c">Montagneux</option>
                         </select>
                     </div>
                 </div>
@@ -90,8 +92,7 @@ function createModel(id) {
                         <select name="" id="" data-disable-step="235" required>
                             <option value="" selected disabled>Sélectionnez…</option>
                             <option value="a">Longue distance</option>
-                            <option value="b">Transport</option>
-                            <option value="c">Pompier</option>
+                            <option value="b">Distribution</option>
                         </select>
                     </div>
                 </div>
@@ -100,9 +101,8 @@ function createModel(id) {
                     <div class="select-wrap">
                         <select name="" id="" data-disable-step="235" required>
                             <option value="" selected disabled>Sélectionnez…</option>
-                            <option value="a">Huile A</option>
-                            <option value="b">Huile B</option>
-                            <option value="c">Huile C</option>
+                            <option value="a">Huile RLD3</option>
+                            <option value="b">Huile RLD5</option>
                         </select>
                     </div>
                 </div>
@@ -111,8 +111,13 @@ function createModel(id) {
             <div class="row">
                 <div>
                     <label for=""><abbr title="Poids Total Roulant Autorisé">PTRA</abbr></label>
-                    <div class="input-wrap">
-                        <input type="text" data-disable-step="235" required>
+                    <div class="select-wrap">
+                        <select name="" id="" data-disable-step="235" required>
+                            <option value="" selected disabled>Sélectionnez…</option>
+                            <option value="b">26T</option>
+                            <option value="b">32T</option>
+                            <option value="a">44T</option>
+                        </select>
                     </div>
                 </div>
                 <div>
@@ -129,9 +134,9 @@ function createModel(id) {
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" data-none-step="12">
                 <div>
-                    <label for="">Contact concessionnaire</label>
+                    <label for="">Nom concessionnaire</label>
                     <div class="input-wrap">
                         <input type="text" class="dealer-name" data-disable-step="235" required>
                     </div>
@@ -178,7 +183,7 @@ function changeStep() {
         if (i === step) $(`header ul li:nth-child(${i + 1})`).addClass('last');
     }
 
-    $('aside button').html(['Valider la commande', 'Valider les VIN', 'Valider les immatriculations', 'Valider les PMS', ''][step]);
+    $('aside button').html(['Valider', 'Valider', 'Valider', 'Valider', ''][step]);
 
     $(`[data-hide-step*=${step + 1}]`).addClass('hidden');
     $(`[data-hide-step]:not([data-hide-step*=${step + 1}])`).removeClass('hidden');
@@ -269,6 +274,7 @@ $(document).on('click', '[data-action]', e => {
         $model.remove();
     }
 
+    updateTotal();
     updateProgress();
 });
 
