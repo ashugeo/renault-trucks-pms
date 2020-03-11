@@ -114,9 +114,9 @@ function createModel(id) {
                     <div class="select-wrap">
                         <select name="" id="" data-disable-step="235" required>
                             <option value="" selected disabled>Sélectionnez…</option>
-                            <option value="b">26T</option>
+                            <option value="a">26T</option>
                             <option value="b">32T</option>
-                            <option value="a">44T</option>
+                            <option value="c">44T</option>
                         </select>
                     </div>
                 </div>
@@ -138,13 +138,13 @@ function createModel(id) {
                 <div>
                     <label for="">Nom concessionnaire</label>
                     <div class="input-wrap">
-                        <input type="text" class="dealer-name" data-disable-step="235" required>
+                        <input type="text" class="dealer-name" data-disable-step="235" disabled required>
                     </div>
                 </div>
                 <div>
                     <label for="">Mail concessionnaire</label>
                     <div class="input-wrap">
-                        <input type="mail" class="dealer-mail" data-disable-step="235" required>
+                        <input type="mail" class="dealer-mail" data-disable-step="235" disabled required>
                     </div>
                 </div>
             </div>
